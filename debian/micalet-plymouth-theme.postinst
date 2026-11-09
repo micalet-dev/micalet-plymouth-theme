@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  configure)
+    update-alternatives --install \
+      /usr/share/plymouth/themes/default.plymouth \
+      default.plymouth \
+      /usr/share/plymouth/themes/micalet/micalet.plymouth \
+      200
+
+    # Rebuild existing initramfs images so the selected theme is available
+    # early during boot. During image creation there may not be a kernel yet.
+    if command -v update-initramfs >/dev/null 2>&1; then
+      have_initrd=no
+      for initrd in /boot/initrd.img-*; do
+        if [ -e "$initrd" ]; then
+          have_initrd=yes
+          break
+        fi
+      done
+      if [ "$have_initrd" = yes ]; then
+        update-initramfs -u -k all
+      fi
+    fi
+    ;;
+esac
+
+#DEBHELPER#

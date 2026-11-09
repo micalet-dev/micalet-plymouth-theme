@@ -1,0 +1,19 @@
+micalet-plymouth-theme (0.3) resolute; urgency=medium
+
+  * Add Plymouth theme dependencies.
+  * Fix background resizing and soften logo animation.
+  * Clarify the current subtle logo-opacity range in the documentation.
+
+ -- Marcos <mcomechem@micalet.net>  Mon, 09 Nov 2026 15:45:08 +0100
+
+micalet-plymouth-theme (0.1.1) UNRELEASED; urgency=medium
+
+  [ Marcos ]
+  * Initial Micalet Plymouth theme.
+  * Add a static background and a softly pulsing logo.
+  * Register the theme as the preferred Plymouth theme.
+
+  [ Marcos Comeche ]
+  * Add required Plymouth theme and font dependencies
+
+ -- Marcos Comeche <mcomeche9@gmail.com>  Sun, 08 Nov 2026 17:48:54 +0100

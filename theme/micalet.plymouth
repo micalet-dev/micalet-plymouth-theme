@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Micalet
+Description=Micalet GNU/Linux boot splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/micalet
+ScriptFile=/usr/share/plymouth/themes/micalet/micalet.script

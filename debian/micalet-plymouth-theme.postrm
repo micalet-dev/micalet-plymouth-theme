@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  remove|deconfigure)
+    update-alternatives --remove \
+      default.plymouth \
+      /usr/share/plymouth/themes/micalet/micalet.plymouth
+
+    if command -v update-initramfs >/dev/null 2>&1; then
+      have_initrd=no
+      for initrd in /boot/initrd.img-*; do
+        if [ -e "$initrd" ]; then
+          have_initrd=yes
+          break
+        fi
+      done
+      if [ "$have_initrd" = yes ]; then
+        update-initramfs -u -k all
+      fi
+    fi
+    ;;
+esac
+
+#DEBHELPER#
